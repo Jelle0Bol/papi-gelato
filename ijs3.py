@@ -3,7 +3,7 @@ import math
 
 
 print("Welkom bij Papi Gelato.")
-sorry = "Helaas, dit is geen optie die wij hebben hier"
+sorry = "Sorry dat is geen optie die we aanbieden..."
 hoorntje = "Hoorntjes    1 x € 1.25    = € 1.25  "
 bakje = "Bakjes       1 x € 0.75    = € 0.75  "
 x = ("                          -------- +")
