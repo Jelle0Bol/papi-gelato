@@ -3,9 +3,9 @@ from time import sleep
 
 print(Welkom bij Papi Gelato je mag alle smaken kiezen zolang het maar vanille ijs is.)
 sleep(2.5)
-bol = int(input(Hoeveel bolletjes ijs wilt u  ))
+bol = int(input("Hoeveel bolletjes ijs wilt u? : "))
 while bol =8
-    print(Sorry, zulke grote bakken hebben we niet)
+    print("Sorry, zulke grote bakken hebben we niet")
     bol = int(input(Hoeveel bolletjes ijs wilt u  ))
 if bol = 1 and bol =3
     #stap2
