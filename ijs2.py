@@ -1,22 +1,27 @@
 import os
 import sys
+
 ijssalon = 1
 bak = 1
 def smaken():
     global smaak
-    smaak = str(input("Welke smaak wilt u voor bolletje"+ str(bol) +" A) Aardbei, C) Chocolade, M) Munt of V) Vanille?")).lower()
-    if smaak == "a":
-        smaak= "Aarbei"
-    elif smaak == "c":
-        smaak= "Chocolade"
-    elif smaak == "m":
-        smaak= "Munt"
-    elif smaak == "v":
-        smaak= "Vanille"
-    else:
-        print("Sorry, dat snap ik niet...")
-def bestellen():
-    bestellen = input("Hier is uw "+ deel+ " " + smaak +" met " + str(bol)+ " bolletje(s). Wilt u nog meer bestellen? (Y/N)").lower()
+    for k in range(bol ,0,-1):
+        smaak = str(input("Welke smaak wilt u voor " + str(k) + " ? A) Aardbei, C) Chocolade, V) Vanille of M) Munt? : ")).lower()
+        if smaak =="a":
+            smaak = "Aardbei"
+        elif smaak =="c":
+            smaak = "Chocolade"
+        elif smaak =="v":
+            smaak = "Vanille"
+        elif smaak == "m":
+            smaak ="munt"
+        else:
+            print("Sorry dat snap ik niet")
+        
+
+def bestel():
+    global bestel
+    bestellen = input("Hier is uw "+ deel+ " met " + str(bol)+ " bolletje(s). Wilt u nog meer bestellen? (Y/N) : ").lower()
     if bestellen == "y":
         ijssalon+0
     elif bestellen == "n":
@@ -38,17 +43,17 @@ while ijssalon == 1:
             hoorntje = str(input("Wilt u deze " + str(bol) + " bolletje(s) in A) een hoorntje of B) een bakje? : ")).lower()
             if hoorntje == "a":
                 deel = "hoorntje"
-                print (smaken)
-                print (bestellen)
+                smaken()
+                bestel()
             elif hoorntje == "b":
                 deel = "bakje"
                 smaken()
-                bestellen()
+                bestel()
             else:
                 print("Sorry, dat snap ik niet")
     elif bol >=4 and bol <=8:
         deel = "bakje"
         smaken()
-        bestellen()
+        bestel()
     else:
         print("Sorry, ik snap het niet...")
