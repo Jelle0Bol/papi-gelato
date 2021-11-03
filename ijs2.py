@@ -8,15 +8,13 @@ sorry = "Sorry, dat is geen optie die we aanbieden..."
 def smaken():
     global smaak
     for k in range(bol ,0,-1):
-        smaak = str(input("Welke smaak wilt u voor bol nummer " + str(k) + " ? A) Aardbei, C) Chocolade, V) Vanille of M) Munt? : ")).lower()
+        smaak = str(input("Welke smaak wilt u voor bol nummer " + str(k) + " ? A) Aardbei, C) Chocolade of V) Vanille : ")).lower()
         if smaak =="a":
             smaak = "Aardbei"
         elif smaak =="c":
             smaak = "Chocolade"
         elif smaak =="v":
             smaak = "Vanille"
-        elif smaak == "m":
-            smaak ="Munt"
         else:
             print (sorry) 
 
@@ -69,7 +67,7 @@ def zakelijk():
     elif werk == "2":
         literIjs = int(input("Hoeveel liter ijs wilt u? : "))
         for p in range(literIjs,0,-1):
-            smaakLiter = str(input("Welke smaak wilt u voor liter nummer " + str(p) + " ? A) Aardbei, C) Chocolade, V) Vanille of M) Munt? : ")).lower()
+            smaakLiter = str(input("Welke smaak wilt u voor liter nummer " + str(p) + " ? A) Aardbei, C) Chocolade of  V) Vanille : ")).lower()
         zakelijkBon()
     else:
         print (sorry)
