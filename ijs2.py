@@ -4,10 +4,11 @@ import sys
 ijssalon = 1
 bak = 1
 hoorn = 1.25
+sorry = "Sorry, dat snap ik niet"
 def smaken():
     global smaak
     for k in range(bol ,0,-1):
-        smaak = str(input("Welke smaak wilt u voor " + str(k) + " ? A) Aardbei, C) Chocolade, V) Vanille of M) Munt? : ")).lower()
+        smaak = str(input("Welke smaak wilt u voor bol nummer" + str(k) + " ? A) Aardbei, C) Chocolade, V) Vanille of M) Munt? : ")).lower()
         if smaak =="a":
             smaak = "Aardbei"
         elif smaak =="c":
@@ -15,10 +16,37 @@ def smaken():
         elif smaak =="v":
             smaak = "Vanille"
         elif smaak == "m":
-            smaak ="munt"
+            smaak ="Munt"
         else:
-            print("Sorry dat snap ik niet")
-        
+            print (sorry) 
+
+def toppings():
+    global topping, toppingsaantal, toppingprijs
+    toppingsaantal = 0
+    topping = input("Welke topping wilt u? U kunt kiezen uit A) Niks, B) Slagroom, C) Sprinkels of D) Caramel Saus : ").lower()
+    if topping == "a":
+        topping = "Geen"
+        toppingsaantal += 1
+        toppingprijs = 0
+    elif topping == "b":
+        topping = "Slagroom"
+        toppingsaantal += 1
+        toppingprijs = 0.50
+    elif topping == "c":
+        topping = "Sprinkels"
+        toppingsaantal += 1
+        toppingprijs = 0.30*bol
+    elif topping == "d" and hoorntje =="a":
+        topping = "CaramelSaus"
+        toppingsaantal += 1
+        toppingprijs = 0.60
+    elif topping == "d" and hoorntje =="b":
+        topping = "CaramelSaus"
+        toppingsaantal += 1
+        toppingprijs = 0.90
+    else:
+        print (sorry) 
+        toppings()  
 
 def bestel():
     global bestel
@@ -30,11 +58,21 @@ def bestel():
         print("Bedankt en tot ziens.")
         sys.exit()     
     else:
-        print("Sorry, dat snap ik niet...")
+        print (sorry)
         ijssalon+0
 
+def zakelijk():
+    werk = input("Bent u 1) Particulier of 2) Zakelijk? : ")
+    if werk == "1":
+        begin()
+    elif werk == "2":
+        literIjs = int(input("Hoeveel liter ijs wilt u? : "))
+        for p in range(literIjs,0,-1):
+            smaakLiter = str(input("Welke smaak wilt u voor liter nummer " + str(p) + " ? A) Aardbei, C) Chocolade, V) Vanille of M) Munt? : ")).lower()
+
+
 def bonnetje():
-    global bon
+    global bon 
     #prijsBak = (bakjeAantal * 0.75)
     #prijsHoorn = (hoorntjeAantal * 1.25)
     print("")
@@ -44,15 +82,17 @@ def bonnetje():
     total = "{:.2f}".format(round(float(bol)*1.1 , 2))
     totalBakje = "{:.2f}".format(round(float(bakjeAantal)*0.75 , 2))
     totalHoorntje = "{:.2f}".format(round(float(hoorntjeAantal)*1.25 , 2))
-    totaalBon = total + totalBakje + totalHoorntje
+    totalTopping = float(toppingsaantal) * float(toppingprijs)
+    tussenBon = float(total) + float(totalBakje) + float(totalHoorntje) + float(totalTopping)
     print("Bolletjes:       ", bol ,           "x € 1.10 =  €",total)
     print("Horrentje:       ", hoorntjeAantal ,"x € 1.25 =  €",totalHoorntje)
     print("Bakje:           ", bakjeAantal,    "x € 0.75 =  €",totalBakje)
+    print("Topping:         ", toppingsaantal, "x €", toppingprijs," =  €", totalTopping )
     print("                                ------ +")
-    print("Totaal:                         €",totaalBon)
+    print("Totaal:                         €",tussenBon)
 
 def begin():
-    global bol, deel, hoorntjeAantal, bakjeAantal
+    global bol, deel, hoorntjeAantal, bakjeAantal, hoorntje
     hoorntjeAantal = 0
     bakjeAantal = 0
     while ijssalon == 1:
@@ -67,19 +107,22 @@ def begin():
                     hoorntjeAantal += 1
                     deel = "hoorntje"
                     smaken()
+                    toppings()
                     bestel()
                 elif hoorntje == "b":
                     bakjeAantal+= 1
                     deel = "bakje"
                     smaken()
+                    toppings()
                     bestel()
                 else:
-                    print("Sorry, dat snap ik niet")
+                    print (sorry)
         elif bol >=4 and bol <=8:
             deel = "bakje"
             smaken()
+            toppings()
             bestel()
         else:
             print("Sorry, ik snap het niet...")
 print("Welkom bij Papi Gelato. ")
-begin()
+zakelijk()
