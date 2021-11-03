@@ -62,6 +62,7 @@ def bestel():
         ijssalon+0
 
 def zakelijk():
+    global literIjs, smaakLiter
     werk = input("Bent u 1) Particulier of 2) Zakelijk? : ")
     if werk == "1":
         begin()
@@ -69,7 +70,19 @@ def zakelijk():
         literIjs = int(input("Hoeveel liter ijs wilt u? : "))
         for p in range(literIjs,0,-1):
             smaakLiter = str(input("Welke smaak wilt u voor liter nummer " + str(p) + " ? A) Aardbei, C) Chocolade, V) Vanille of M) Munt? : ")).lower()
+        zakelijkBon()
 
+def zakelijkBon():
+    print("")
+    print("-------------[Papi Gelato]-------------")
+    print("")
+    literPrijs = "{:.2f}".format(round(float(literIjs)*9.80 , 2))
+    literBTW = "{:.2f}".format(round(float(literIjs)*9.80 / 100 * 9, 2))
+    #literBTW = literIjs * 9.80 / 100 * 9
+    print("Liter:           ", literIjs,       "x € 9.80 = €",literPrijs)
+    print("                               ------ +")
+    print("Totaal:                        €",literPrijs)
+    print("BTW:                           €",literBTW)
 
 def bonnetje():
     global bon 
@@ -82,12 +95,13 @@ def bonnetje():
     total = "{:.2f}".format(round(float(bol)*1.1 , 2))
     totalBakje = "{:.2f}".format(round(float(bakjeAantal)*0.75 , 2))
     totalHoorntje = "{:.2f}".format(round(float(hoorntjeAantal)*1.25 , 2))
+    toppingprijsprijs = "{:.2f}".format(round(float(toppingsaantal)*(toppingprijs) , 2))
     totalTopping = float(toppingsaantal) * float(toppingprijs)
     tussenBon = float(total) + float(totalBakje) + float(totalHoorntje) + float(totalTopping)
     print("Bolletjes:       ", bol ,           "x € 1.10 =  €",total)
     print("Horrentje:       ", hoorntjeAantal ,"x € 1.25 =  €",totalHoorntje)
     print("Bakje:           ", bakjeAantal,    "x € 0.75 =  €",totalBakje)
-    print("Topping:         ", toppingsaantal, "x €", toppingprijs," =  €", totalTopping )
+    print("Topping:         ", toppingsaantal, "x €", toppingprijsprijs," =  €", totalTopping )
     print("                                ------ +")
     print("Totaal:                         €",tussenBon)
 
