@@ -78,8 +78,8 @@ def zakelijkBon():
     print("-------------[Papi Gelato]-------------")
     print("")
     literPrijs = "{:.2f}".format(round(float(literIjs)*9.80 , 2))
-    literBTW = "{:.2f}".format(round(float(literIjs)*9.80 / 100 * 9, 2))
-    #literBTW = literIjs * 9.80 / 100 * 9
+    literBTW = "{:.2f}".format(round(float(literIjs)*9.80 / 100 * 6, 2))
+    #literBTW = literIjs * 9.80 / 100 * 6
     print("Liter:           ", literIjs,       "x € 9.80 = €",literPrijs)
     print("                               ------ +")
     print("Totaal:                        €",literPrijs)
