@@ -4,7 +4,7 @@ import sys
 ijssalon = 1
 bak = 1
 hoorn = 1.25
-sorry = "Sorry, dat snap ik niet"
+sorry = "Sorry, dat is geen optie die we aanbieden..."
 def smaken():
     global smaak
     for k in range(bol ,0,-1):
