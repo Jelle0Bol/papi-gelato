@@ -71,6 +71,9 @@ def zakelijk():
         for p in range(literIjs,0,-1):
             smaakLiter = str(input("Welke smaak wilt u voor liter nummer " + str(p) + " ? A) Aardbei, C) Chocolade, V) Vanille of M) Munt? : ")).lower()
         zakelijkBon()
+    else:
+        print (sorry)
+        zakelijk()
 
 def zakelijkBon():
     print("")
