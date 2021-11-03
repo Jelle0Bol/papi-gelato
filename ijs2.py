@@ -8,7 +8,7 @@ sorry = "Sorry, dat is geen optie die we aanbieden..."
 def smaken():
     global smaak
     for k in range(bol ,0,-1):
-        smaak = str(input("Welke smaak wilt u voor bol nummer" + str(k) + " ? A) Aardbei, C) Chocolade, V) Vanille of M) Munt? : ")).lower()
+        smaak = str(input("Welke smaak wilt u voor bol nummer " + str(k) + " ? A) Aardbei, C) Chocolade, V) Vanille of M) Munt? : ")).lower()
         if smaak =="a":
             smaak = "Aardbei"
         elif smaak =="c":
@@ -95,13 +95,13 @@ def bonnetje():
     print("-------------[Papi Gelato]-------------")
     print("")
     #print("Bolletjes   ",bol," x €1,10 = €",prijsBol)
-    total = "{:.2f}".format(round(float(bol)*1.1 , 2))
+    total = "{:.2f}".format(round(float(bol)*0.95 , 2))
     totalBakje = "{:.2f}".format(round(float(bakjeAantal)*0.75 , 2))
     totalHoorntje = "{:.2f}".format(round(float(hoorntjeAantal)*1.25 , 2))
     toppingprijsprijs = "{:.2f}".format(round(float(toppingsaantal)*(toppingprijs) , 2))
     totalTopping = float(toppingsaantal) * float(toppingprijs)
     tussenBon = float(total) + float(totalBakje) + float(totalHoorntje) + float(totalTopping)
-    print("Bolletjes:       ", bol ,           "x € 1.10 =  €",total)
+    print("Bolletjes:       ", bol ,           "x € 0.95 =  €",total)
     print("Horrentje:       ", hoorntjeAantal ,"x € 1.25 =  €",totalHoorntje)
     print("Bakje:           ", bakjeAantal,    "x € 0.75 =  €",totalBakje)
     print("Topping:         ", toppingsaantal, "x €", toppingprijsprijs," =  €", totalTopping )
